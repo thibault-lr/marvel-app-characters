@@ -9,6 +9,9 @@
     "dev": "NODE_ENV=staging ./node_modules/.bin/webpack-dev-server",
     "build": "NODE_ENV=production ./node_modules/.bin/webpack"
   },
+  "engines": {
+    "node" : ">= 12.7.0"
+  },
   "dependencies": {
     "autoprefixer": "^9.7.4",
     "eslint-plugin-react": "^7.18.3",
