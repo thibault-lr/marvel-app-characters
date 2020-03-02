@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
 
-import App from './App';
+import  App from 'components/pages/App';
 
 // import css
 import 'scss/global';
@@ -16,7 +16,7 @@ ReactDOM.render(
 declare let module: { hot : any };
 
 if (module.hot) {
-  module.hot.accept('./App', () => {
+  module.hot.accept('./components/pages/App', () => {
     ReactDOM.render(<App />, document.getElementById('root'));
   });
 }

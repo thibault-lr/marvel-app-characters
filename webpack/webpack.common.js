@@ -14,6 +14,7 @@ module.exports = {
     alias: {
       components: path.resolve(__dirname, '..', 'src', 'components'),
       scss: path.resolve(__dirname, '..', 'src', 'scss'),
+      resources: path.resolve(__dirname, '..','src','resources')
     },
   },
   module: {
@@ -57,7 +58,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin(({
       title: 'Marvel characters',
-      template: path.resolve(__dirname, '..', 'public', 'index.html')
+      template: path.resolve(__dirname, '..', 'public', 'index.html'),
     })),
   ],
 
