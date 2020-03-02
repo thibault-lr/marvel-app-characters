@@ -57,7 +57,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin(({
       title: 'Marvel characters',
-      template: path.resolve(__dirname, '..', 'public', 'index.html'),
+      template: path.resolve(__dirname, '..', 'public', 'index.html')
     })),
   ],
 
