@@ -1,21 +1,60 @@
 module.exports = {
-  root: true,
+  env: {
+    browser: true,
+    es6: true,
+  },
+  extends: [
+    'plugin:react/recommended',
+    'airbnb',
+  ],
+  globals: {
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
+  },
   parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 2018,
+    sourceType: 'module',
+  },
   plugins: [
+    'react',
     '@typescript-eslint',
   ],
-  extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/eslint-recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:react/recommended'
-  ],
-  ecmaFeatures: {
-    jsx: true
-  },
   settings: {
-    react: {
-      version: 'detect'
+    "import/extensions": [".js", ".jsx", ".ts", ".tsx",".scss"],
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx",".scss"]
+      },
+      "alias": {
+        "map": [
+          ['scss','./src/scss']
+        ],
+        "extensions": ['.scss']
+      }
     }
-  }
+  },
+  rules: {
+    "react/jsx-filename-extension": ["warn", {
+      "extensions": [".jsx", ".tsx",".scss"]
+    }],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never",
+        "scss":"never"
+      }
+    ,
+  ]
+  },
 };
