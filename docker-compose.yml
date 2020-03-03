@@ -1,0 +1,45 @@
+version: "3"
+services:
+
+  ##### Server Nginx
+  nginx:
+    restart: always
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    volumes:
+      - shared:/usr/share/nginx/html
+    ports:
+      - "8080:80"
+    depends_on:
+      - app
+
+
+  ####### Build front modules
+  app:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    volumes:
+      - shared:/usr/src/app/dist
+    environment:
+      - NODE_ENV=production
+
+
+  ###  API
+  api:
+    build:
+      context: ./marvel-characters-api
+      dockerfile: Dockerfile
+    ports:
+      - "${NODE_PORT}:${NODE_PORT}"
+    environment:
+      NODE_HOST: ${NODE_HOST}
+      NODE_PORT: ${NODE_PORT}
+      API_PUBLIC_KEY: ${API_PUBLIC_KEY}
+      API_PRIVATE_KEY: ${API_PRIVATE_KEY}
+
+    
+
+volumes:
+  shared: {}
