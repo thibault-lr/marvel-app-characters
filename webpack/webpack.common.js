@@ -1,6 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
+
 
 module.exports = {
   entry: path.resolve(__dirname, '..', 'src', 'index.tsx'),
@@ -14,6 +16,7 @@ module.exports = {
     alias: {
       components: path.resolve(__dirname, '..', 'src', 'components'),
       scss: path.resolve(__dirname, '..', 'src', 'scss'),
+      resources: path.resolve(__dirname, '..','src','resources')
     },
   },
   module: {
@@ -25,7 +28,6 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        exclude: /node_modules/,
         use: [
           MiniCssExtractPlugin.loader,
           {
@@ -57,8 +59,12 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin(({
       title: 'Marvel characters',
-      template: path.resolve(__dirname, '..', 'public', 'index.html')
+      template: path.resolve(__dirname, '..', 'public', 'index.html'),
     })),
+    new CopyPlugin([
+      {"from": 'public/assets', "to": "public/assets"}
+    ])
+
   ],
 
 };

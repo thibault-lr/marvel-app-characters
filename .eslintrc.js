@@ -34,9 +34,10 @@ module.exports = {
       },
       "alias": {
         "map": [
-          ['scss','./src/scss']
+          ['scss','./src/scss'],
+          ['components','./src/components']
         ],
-        "extensions": ['.scss']
+        "extensions": ['.scss','.tsx']
       }
     }
   },
