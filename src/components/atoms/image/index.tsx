@@ -7,13 +7,19 @@ export interface ImageProps {
   imageAlt: string;
 }
 
+const IMAGE_FALLBACK = 'dist/assets/images/not_available.jpg'
 
-export const Image = (props: ImageProps) => {
-  const { imagePath, imageAlt } = props;
+export class Image extends React.Component <ImageProps> {
 
-  return (
-    <div className="Image">
-      <img src={imagePath} alt={imageAlt} />
-    </div>
-  );
-};
+  state = {
+    image: this.props.imagePath || IMAGE_FALLBACK
+  }
+
+  render () {
+    return (
+      <div className="Image">
+        <img src={this.state.image} alt={this.props.imageAlt} />
+      </div>
+    )
+  }
+}
