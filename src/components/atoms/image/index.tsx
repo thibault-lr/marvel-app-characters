@@ -7,7 +7,7 @@ export interface ImageProps {
   imageAlt: string;
 }
 
-const IMAGE_FALLBACK = 'dist/assets/images/not_available.jpg'
+const IMAGE_FALLBACK = 'public/assets/images/not_available.jpg'
 
 export class Image extends React.Component <ImageProps> {
 

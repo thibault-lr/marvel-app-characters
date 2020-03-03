@@ -7,3 +7,20 @@
     padding: 0;
   }
 }
+
+
+.pagination {
+  list-style: none;
+  display: inline-flex;
+  width: 100%;
+  justify-content: space-evenly;
+
+  li {
+    a {
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+  }
+}
