@@ -17,13 +17,15 @@ class App extends React.Component<any, {}> {
 
   state = {
     characters: [],
+    limit: 10,
+    offset: 0,
     loading: true
   };
 
   async componentDidMount() {
 
     try {
-      const res = await getCharacters(0)
+      const res = await getCharacters(this.state.offset, this.state.limit)
 
       this.setState({characters : res.data.characters, loading: false})
 
