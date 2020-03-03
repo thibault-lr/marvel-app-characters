@@ -4,6 +4,8 @@ import Card from 'components/molecules/Card';
 
 import { getCharacters } from 'resources/characters';
 
+import './style.scss'
+
 
 interface CharacterModel {
   id: number;
@@ -19,7 +21,6 @@ class App extends React.Component<any, {}> {
   };
 
   async componentDidMount() {
-    console.log('mounted')
 
     try {
       const res = await getCharacters(0)
@@ -39,9 +40,9 @@ class App extends React.Component<any, {}> {
     if(loading) return (<div> Loading ... </div>)
     else 
       return (
-        <div>
+        <div className="App col-12 row d-flex justify-content-center">
           {characters.map( (element: CharacterModel) => {
-            return (<Card image={element.image} title={element.name} key={`charac-${element.id}`} />)
+            return (<Card className="col-2" image={element.image} title={element.name} key={`charac-${element.id}`} />)
           }
             
           )}
