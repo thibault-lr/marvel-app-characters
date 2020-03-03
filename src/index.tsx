@@ -7,6 +7,9 @@ import  App from 'components/pages/App';
 // import css
 import 'scss/global';
 
+// import boostrap grid
+import 'bootstrap-4-grid/scss/grid.scss';
+
 ReactDOM.render(
   <App />,
   document.getElementById('root'),
